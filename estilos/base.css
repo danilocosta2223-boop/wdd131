@@ -1,139 +1,47 @@
-/* Reset básico e Google Fonts */
-* {
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-body {
-    background-color: #f9f9f9;
+    background-color: #f4f6f8;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
-
 header {
-    background: #003366;
+    background-color: #003366;
     color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-header span {
-    display: block;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
-}
-
-/* Flex no menu */
-nav {
+    padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background: #003366;
 }
-
 nav a {
     color: white;
+    margin-left: 1rem;
     text-decoration: none;
-    padding: 0.8rem 1rem;
-    transition: background 0.3s ease;
 }
-
-/* Hover e Foco nos links */
-nav a:hover {
-    background-color: #0056b3;
-    color: white;
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
-
-nav a:focus {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
-}
-
-/* Main centralizado */
 main {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    text-align: center;
-    flex: 1;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
 }
-
-main h1 {
-    margin-bottom: 2rem;
-    color: #003366;
-    font-size: 2rem;
-}
-
-/* Grid nos cards */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
 .card {
     background: white;
-    padding: 2rem;
-    border: 1px solid #ddd;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.card h2 {
-    margin-bottom: 0.8rem;
-    color: #003366;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 0.3rem;
-    font-size: 1.3rem;
-}
-
-.card p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-/* Imagens responsivas */
-.card img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0.5rem auto;
-    border-radius: 4px;
-}
-
-/* Rodapé */
 footer {
-    background: #003366;
-    color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: auto;
-    font-size: 0.9rem;
+    background-color: #222;
+    color: white;
+    margin-top: 2rem;
 }
-
-footer p {
-    margin: 0.3rem 0;
-}
-
-/* Responsividade (Media Queries) */
-@media (max-width: 768px) {
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        width: 100%;
-        text-align: center;
-    }
+footer a {
+    color: #4da6ff;
+    margin: 0 0.5rem;
 }
