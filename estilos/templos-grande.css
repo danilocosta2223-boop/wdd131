@@ -7,7 +7,6 @@
         display: flex;
         position: static;
         width: auto;
-        flex-direction: row;
     }
 
     .gallery {
