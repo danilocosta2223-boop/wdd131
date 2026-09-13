@@ -1,0 +1,31 @@
+/* Estilos para telas grandes / Desktop (min-width: 768px) */
+
+@media screen and (min-width: 768px) {
+    #menu {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        position: static;
+        width: auto;
+        background: transparent;
+        gap: 1rem;
+    }
+
+    .navigation li {
+        list-style: none;
+    }
+
+    .navigation a {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
