@@ -1,123 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@media screen and (min-width: 768px) {
+    #menu {
+        display: none;
+    }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-}
+    .navigation {
+        display: flex;
+        position: static;
+        width: auto;
+    }
 
-header {
-    background: #003366;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.logo {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-#menu {
-    display: block;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-nav {
-    display: flex; /* Exigido pela auditoria */
-}
-
-.navigation {
-    display: none;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #002244;
-}
-
-.navigation.open {
-    display: flex;
-    flex-direction: column;
-}
-
-.navigation a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navigation a:hover {
-    background-color: #0056b3; /* Exigido pela auditoria */
-}
-
-.navigation a.active {
-    background: #0056b3;
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.5rem 1rem;
-}
-
-main h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #003366;
-}
-
-.gallery {
-    display: grid; /* Exigido pela auditoria */
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-figure {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-figcaption {
-    padding: 0.8rem;
-    font-weight: 500;
-    color: #333;
-}
-
-footer {
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    margin-top: 2rem;
-}
-
-footer p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
