@@ -1,29 +1,8 @@
-@media screen and (min-width: 768px) {
-    #menu {
-        display: none;
-    }
+nav {
+    display: flex;
+}
 
-    .navigation {
-        display: flex;
-        position: static;
-        width: auto;
-        background: transparent;
-        gap: 1rem;
-    }
-
-    .navigation li {
-        list-style: none;
-    }
-
-    .navigation a {
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-    }
-
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
+.navigation a:hover {
+    background-color: #0056b3;
+    color: #fff;
 }
