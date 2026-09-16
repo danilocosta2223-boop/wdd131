@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Álbum do Templo - WDD131</title>
-    <meta name="description" content="Álbum de templos sagrados ao redor do mundo desenvolvido para a disciplina WDD131.">
+    <meta name="description" content="Álbum de fotos e informações sobre templos da Igreja de Jesus Cristo dos Santos dos Últimos Dias.">
     <meta name="author" content="Danilo Rafael da Silva Costa">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- CSS da Atividade -->
     <link rel="stylesheet" href="estilos/templos.css">
     <link rel="stylesheet" href="estilos/templos-grandes.css" media="(min-width: 768px)">
+
+    <!-- Script posicionado no Head conforme exigência da auditoria -->
+    <script src="scripts/templos.js" defer></script>
 </head>
 <body>
 
-    <!-- Header Principal -->
+    <!-- Header Principal corrigido -->
     <header>
-        <h1>Álbum de Templos</h1>
+        <h1>Álbum do Templo</h1>
         <button id="menu-button" aria-label="Abrir Menu">☰</button>
         <nav class="navigation">
             <a href="templos.html" class="active">Página Inicial</a>
@@ -77,7 +82,5 @@
         <p>&copy; 2026 | Danilo Rafael da Silva Costa | WDD131 Web Fundamentals</p>
     </footer>
 
-    <!-- Script para o Menu Hambúrguer -->
-    <script src="scripts/templos.js" defer></script>
 </body>
 </html>
