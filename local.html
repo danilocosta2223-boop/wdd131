@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil - Página do País</title>
+    
+    <meta name="description" content="Página sobre o Brasil com informações geográficas, culturais e climáticas.">
+    <meta name="author" content="Danilo Rafael da Silva Costa">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="estilos/local.css">
+    <link rel="stylesheet" href="estilos/local-grande.css" media="(min-width: 600px)">
+
+    <!-- JavaScript Obrigatório (no Head com defer) -->
+    <script src="scripts/local.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Brasil</h1>
+    </header>
+
+    <main>
+        <!-- Imagem Responsiva usando picture e srcset -->
+        <picture>
+            <source srcset="imagens/brasil-large.webp" media="(min-width: 600px)">
+            <img src="imagens/brasil-mobile.webp" alt="Bandeira e paisagem do Brasil" width="500" height="300" loading="lazy">
+        </picture>
+
+        <!-- Seção de Dados -->
+        <section class="data">
+            <h2>Dados</h2>
+            <p><strong>Área:</strong> 8.515.767 km²</p>
+            <p><strong>População:</strong> 203 milhões</p>
+            <p><strong>Capital:</strong> Brasília</p>
+            <p><strong>Idioma:</strong> Português</p>
+            <p><strong>Moeda:</strong> Real (BRL)</p>
+            <p><strong>Fuso Horário:</strong> UTC−3</p>
+        </section>
+
+        <!-- Seção de Clima -->
+        <section class="weather">
+            <h2>Clima</h2>
+            <img src="imagens/weather.svg" alt="Ícone do clima" class="weather-icon" width="50" height="50">
+            <p><strong>Temperatura:</strong> <span id="temperature">8 °C</span></p>
+            <p><strong>Velocidade do vento:</strong> <span id="wind">10 km/h</span></p>
+            <p><strong>Sensação térmica:</strong> <span id="windchill"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="anoatual"></span> | Danilo Rafael da Silva Costa | São Paulo, Brasil</p>
+        <p id="ultimaModificacao"></p>
+    </footer>
+
+</body>
+</html>
