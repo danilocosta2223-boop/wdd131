@@ -1,0 +1,19 @@
+@media (min-width: 600px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    picture {
+        grid-column: 1 / -1;
+    }
+
+    /* Requisito: Oculta o SVG no desktop */
+    .weather-icon {
+        display: none;
+    }
+
+    /* Requisito: Exibe o emoticon no desktop via pseudoelemento ::after */
+    .weather h2::after {
+        content: " ⛅";
+    }
+}
