@@ -1,0 +1,23 @@
+/* ==========================================
+   Estilos para Telas Grandes (>= 600px)
+   Exigência 4 - Auditoria WDD131
+   ========================================== */
+
+@media (min-width: 600px) {
+    /* Oculta o botão hambúrguer no desktop */
+    #menu {
+        display: none;
+    }
+
+    /* Alinha o menu de navegação horizontalmente */
+    nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Organiza a galeria em 3 colunas fixas */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

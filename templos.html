@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Templos - WDD131</title>
-    <meta name="description" content="Galeria de fotos e informações sobre templos da Igreja de Jesus Cristo dos Santos dos Últimos Dias.">
+    <title>Álbum do Templo - WDD131</title>
+    <meta name="description" content="Álbum de fotos e informações sobre templos da Igreja de Jesus Cristo dos Santos dos Últimos Dias.">
     <meta name="author" content="Danilo Costa">
 
-    <!-- CSS exigido pela auditoria -->
+    <!-- Exigência 2: Google Fonts exact links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Exigência 3: CSS names -->
     <link rel="stylesheet" href="estilos/templos.css">
     <link rel="stylesheet" href="estilos/templos-grandes.css" media="(min-width: 600px)">
 
-    <!-- JavaScript com carregamento diferido -->
     <script src="scripts/templos.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Galeria de Templos</h1>
+        <!-- Exigência 1: Cabeçalho Exato -->
+        <h1>Álbum do Templo</h1>
         <button id="menu">☰</button>
         <nav class="navigation">
             <a href="templos.html">Página Inicial</a>
@@ -30,7 +35,6 @@
     <main>
         <h2>Templos no Brasil</h2>
         
-        <!-- Galeria com a classe .gallery solicitada no CSS -->
         <div class="gallery">
             <figure>
                 <img src="imagens/templo1.webp" alt="Templo de São Paulo" loading="lazy" width="400" height="250">
