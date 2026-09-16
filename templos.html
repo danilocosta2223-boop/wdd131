@@ -3,499 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Security Analyzer - Enterprise Dashboard</title>
-    <!-- Importação do Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            display: flex;
-            margin: 0;
-            background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
-            color: #cbd5e1;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-        }
-
-        .sidebar {
-            width: 260px;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #0f172a, #111827, #1e293b);
-            padding: 25px;
-            border-right: 1px solid #334155;
-            box-sizing: border-box;
-            position: fixed;
-        }
-
-        .sidebar h2 {
-            color: #38bdf8;
-            margin-bottom: 30px;
-            font-size: 22px;
-        }
-
-        .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .sidebar-nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 14px 18px;
-            border-radius: 12px;
-            transition: 0.3s;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .sidebar-nav a:hover,
-        .sidebar-nav a.active {
-            background: linear-gradient(90deg, rgba(56,189,248,.25), rgba(56,189,248,.08));
-            color: #38bdf8;
-            transform: translateX(6px);
-        }
-
-        .main-content {
-            margin-left: 260px;
-            flex: 1;
-            padding: 40px;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            color: #f8fafc;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: .3s;
-            margin-bottom: 20px;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, .4);
-            border-color: #38bdf8;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #f8fafc;
-            font-size: 20px;
-        }
-
-        .card p {
-            color: #94a3b8;
-            font-size: 14px;
-            line-height: 1.5;
-            margin: 8px 0;
-        }
-
-        .score-display {
-            width: 180px;
-            height: 180px;
-            margin: auto;
-            border-radius: 50%;
-            border: 8px solid #22c55e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #22c55e;
-            box-shadow: 0 0 20px rgba(34,197,94,.4), inset 0 0 20px rgba(34,197,94,.2);
-            background: rgba(34, 197, 94, 0.05);
-        }
-
-        .score-display-small {
-            font-size: 50px;
-            font-weight: bold;
-            color: #38bdf8;
-            margin-top: 10px;
-        }
-
-        .btn {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 15px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.2s;
-            margin-right: 8px;
-            margin-top: 5px;
-        }
-
-        .btn:hover {
-            background: #1d4ed8;
-        }
-
-        .content-section {
-            display: none;
-        }
-
-        .active-section {
-            display: block;
-        }
-    </style>
+    <title>Álbum do Templo - WDD131</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- CSS da Atividade -->
+    <link rel="stylesheet" href="estilos/templos.css">
+    <link rel="stylesheet" href="estilos/templos-grandes.css" media="(min-width: 768px)">
 </head>
 <body>
 
-    <!-- Sidebar com IDs limpos para EventListeners -->
-    <aside class="sidebar">
-        <h2>🔒 AWS Security</h2>
-        <nav class="sidebar-nav">
-            <a id="nav-dashboard" data-target="dashboard" class="active">🏠 Dashboard</a>
-            <a id="nav-aws" data-target="aws">☁️ AWS</a>
-            <a id="nav-security" data-target="security">🔒 Security</a>
-            <a id="nav-reports" data-target="reports">📄 Reports</a>
-            <a id="nav-settings" data-target="settings">⚙️ Settings</a>
-            <a id="nav-tests" data-target="tests">🧪 Tests</a>
-            <a id="nav-history" data-target="history">📈 Histórico</a>
+    <!-- Header Principal -->
+    <header>
+        <h1>Álbum de Templos</h1>
+        <button id="menu-button" aria-label="Abrir Menu">☰</button>
+        <nav class="navigation">
+            <a href="templos.html" class="active">Página Inicial</a>
+            <a href="antigo.html">Antigo</a>
+            <a href="novo.html">Novo</a>
+            <a href="grande.html">Grande</a>
+            <a href="pequeno.html">Pequeno</a>
         </nav>
-    </aside>
+    </header>
 
-    <!-- Conteúdo Principal SPA -->
-    <main class="main-content">
-
-        <!-- Dashboard -->
-        <div id="dashboard-section" class="content-section active-section">
-            <h1>🏠 Dashboard</h1>
-            <div class="dashboard-grid">
-                <div class="card" style="grid-column: 1 / -1; text-align: center;">
-                    <h3>Security Score Geral</h3>
-                    <div class="score-display" id="security-score">--</div>
-                </div>
-                <div class="card">
-                    <h3>🏢 Conta AWS</h3>
-                    <p><strong>Account ID:</strong> <span id="lbl-account">Carregando...</span></p>
-                    <p><strong>Region:</strong> <span id="lbl-region">Carregando...</span></p>
-                    <p><strong>IAM User:</strong> <span id="lbl-user">Carregando...</span></p>
-                </div>
-                <div class="card">
-                    <h3>⚠ Vulnerabilidades</h3>
-                    <div class="score-display-small" id="lbl-vulnerabilities">--</div>
-                </div>
-                <div class="card">
-                    <h3>✅ Recursos Seguros</h3>
-                    <div class="score-display-small">98%</div>
-                </div>
-                <div class="card">
-                    <h3>🚨 Alertas Críticos</h3>
-                    <div class="score-display-small" id="lbl-critical" style="color: #ef4444;">--</div>
-                </div>
-            </div>
+    <!-- Conteúdo Principal com as 9 Figuras -->
+    <main>
+        <h2>Templos Sagrados ao Redor do Mundo</h2>
+        <div class="gallery">
+            <figure>
+                <img src="imagens/templo1.webp" alt="Templo de Roma Itália" loading="lazy">
+                <figcaption>Templo de Roma, Itália</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo2.webp" alt="Templo de Salt Lake Utah" loading="lazy">
+                <figcaption>Templo de Salt Lake, Utah</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo3.webp" alt="Templo de Laie Havaí" loading="lazy">
+                <figcaption>Templo de Laie, Havaí</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo4.webp" alt="Templo de Berna Suíça" loading="lazy">
+                <figcaption>Templo de Berna, Suíça</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo5.webp" alt="Templo de São Paulo Brasil" loading="lazy">
+                <figcaption>Templo de São Paulo, Brasil</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo6.webp" alt="Templo de Tóquio Japão" loading="lazy">
+                <figcaption>Templo de Tóquio, Japão</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo7.webp" alt="Templo de Seul Coreia do Sul" loading="lazy">
+                <figcaption>Templo de Seul, Coreia do Sul</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo8.webp" alt="Templo de Joanesburgo África do Sul" loading="lazy">
+                <figcaption>Templo de Joanesburgo, África do Sul</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/templo9.webp" alt="Templo de Lima Peru" loading="lazy">
+                <figcaption>Templo de Lima, Peru</figcaption>
+            </figure>
         </div>
-
-        <!-- AWS Management Center -->
-        <div id="aws-section" class="content-section">
-            <h1>☁️ AWS Management Center</h1>
-            <div class="dashboard-grid">
-                <div class="card"><h3>EC2</h3><p>Monitoramento de instâncias e grupos de segurança.</p></div>
-                <div class="card"><h3>S3</h3><p>Análise de políticas e buckets públicos.</p></div>
-                <div class="card"><h3>VPC</h3><p>Redes, sub-redes e tabelas de roteamento.</p></div>
-                <div class="card"><h3>IAM</h3><p>Usuários, roles e permissões excessivas.</p></div>
-                <div class="card"><h3>CloudTrail</h3><p>Auditoria de logs da conta e eventos de API.</p></div>
-                <div class="card"><h3>Security Hub</h3><p>Achados consolidados de conformidade.</p></div>
-            </div>
-            <div class="card" style="margin-top: 25px;">
-                <h3>🔍 Testar Conexão AWS</h3>
-                <p>Execute um teste de conectividade e varredura em tempo real nos serviços mapeados.</p>
-                <button class="btn" id="btn-run-aws">Executar Auditoria</button>
-            </div>
-            <div class="card">
-                <h3>📋 Resultado da Auditoria</h3>
-                <div id="aws-result" style="background: #0f172a; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; color: #38bdf8; margin-top: 10px; max-height: 300px; overflow-y: auto;">
-                    Nenhuma auditoria executada.
-                </div>
-            </div>
-        </div>
-
-        <!-- Security Center -->
-        <div id="security-section" class="content-section">
-            <h1>🔒 Security Center</h1>
-            <div class="dashboard-grid">
-                <div class="card"><h3>👤 IAM</h3><p>Verificar usuários administrativos e acessos.</p></div>
-                <div class="card"><h3>🔑 MFA</h3><p>Verificar autenticação multifator habilitada.</p></div>
-                <div class="card"><h3>🌐 Security Groups</h3><p>Detectar portas abertas (ex: 22, 3389).</p></div>
-                <div class="card"><h3>🪣 S3</h3><p>Verificar buckets públicos e políticas permissivas.</p></div>
-                <div class="card"><h3>📜 CloudTrail</h3><p>Auditar logs de atividade e trilhas ativas.</p></div>
-                <div class="card"><h3>🔐 Encryption</h3><p>Verificar criptografia em repouso e trânsito.</p></div>
-            </div>
-            <div class="card" style="margin-top: 25px;">
-                <h3>🚀 Executar Auditoria de Segurança</h3>
-                <p>Dispara o motor de varredura global focado nos padrões de conformidade.</p>
-                <button class="btn" id="btn-run-security">Executar Scan</button>
-            </div>
-            <div class="card">
-                <h3>🧪 Laboratório de Testes Diretos</h3>
-                <p>Execute testes isolados por vetor de ataque:</p>
-                <div style="margin-top: 12px;">
-                    <button class="btn" data-test="security-groups">Testar Security Groups</button>
-                    <button class="btn" data-test="mfa">Testar MFA</button>
-                    <button class="btn" data-test="s3-buckets">Testar Buckets S3</button>
-                </div>
-            </div>
-            <div class="card">
-                <h3>📋 Resultados da Análise</h3>
-                <div id="security-result" style="background: #0f172a; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; color: #38bdf8; margin-top: 10px; max-height: 350px; overflow-y: auto;">
-                    Nenhum teste executado.
-                </div>
-            </div>
-        </div>
-
-        <!-- Reports -->
-        <div id="reports-section" class="content-section">
-            <h1>📄 Reports</h1>
-            <div class="card">
-                <h3>Relatórios de Conformidade</h3>
-                <p>Gere e baixe relatórios executivos detalhados da infraestrutura.</p>
-                <br>
-                <button class="btn" id="btn-export-pdf">Gerar PDF</button>
-            </div>
-        </div>
-
-        <!-- Settings -->
-        <div id="settings-section" class="content-section">
-            <h1>⚙️ Settings</h1>
-            <div class="card">
-                <h3>Configurações AWS</h3>
-                <p>Região padrão, chaves IAM e logs.</p>
-            </div>
-        </div>
-
-        <!-- Tests -->
-        <div id="tests-section" class="content-section">
-            <h1>🧪 Tests</h1>
-            <div class="card">
-                <h3>Diagnóstico</h3>
-                <p>Executar testes do motor.</p>
-            </div>
-        </div>
-
-        <!-- Histórico e Gráfico -->
-        <div id="history-section" class="content-section">
-            <h1>📈 Histórico</h1>
-            <div class="card">
-                <h3>Evolução do Score</h3>
-                <canvas id="historyChart" style="max-height: 350px; margin-top: 15px;"></canvas>
-            </div>
-        </div>
-
     </main>
 
-    <!-- JavaScript Moderno com EventListeners e Blindagem de Nulos -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // 1. Navegação SPA via addEventListener (Sem inline onclick)
-            const navLinks = document.querySelectorAll('.sidebar-nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const targetSection = e.currentTarget.getAttribute('data-target');
-                    
-                    // Oculta todas as seções
-                    document.querySelectorAll('.content-section').forEach(sec => {
-                        sec.classList.remove('active-section');
-                    });
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 | Danilo Rafael da Silva Costa | WDD131 Web Fundamentals</p>
+    </footer>
 
-                    // Mostra a selecionada
-                    const activeEl = document.getElementById(`${targetSection}-section`);
-                    if (activeEl) activeEl.classList.add('active-section');
-
-                    // Atualiza classes ativas da sidebar
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    e.currentTarget.classList.add('active');
-                });
-            });
-
-            // 2. Carregar dados iniciais do Dashboard via API com tratamento de falhas
-            loadDashboardData();
-
-            // 3. Vincular botões de ação com addEventListener
-            const btnAws = document.getElementById('btn-run-aws');
-            if (btnAws) btnAws.addEventListener('click', runAwsAudit);
-
-            const btnSec = document.getElementById('btn-run-security');
-            if (btnSec) btnSec.addEventListener('click', runSecurityAudit);
-
-            const btnPdf = document.getElementById('btn-export-pdf');
-            if (btnPdf) btnPdf.addEventListener('click', () => {
-                window.open('/api/report', '_blank');
-            });
-
-            // Laboratório de testes
-            document.querySelectorAll('[data-test]').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    runLabTest(e.currentTarget.getAttribute('data-test'));
-                });
-            });
-
-            // 4. Carregar Histórico e renderizar Chart.js com proteção de elemento nulo
-            loadAuditHistoryChart();
-        });
-
-        async function loadDashboardData() {
-            try {
-                const response = await fetch('/api/dashboard');
-                if (!response.ok) throw new Error("Falha ao comunicar com o backend.");
-                const data = await response.json();
-
-                // Preenchimento dinâmico seguro
-                const scoreEl = document.getElementById('security-score');
-                if (scoreEl) scoreEl.innerText = `${data.security_score ?? 85}%`;
-
-                const accEl = document.getElementById('lbl-account');
-                if (accEl) accEl.innerText = data.account_id || '123456789012';
-
-                const regEl = document.getElementById('lbl-region');
-                if (regEl) regEl.innerText = data.region || 'us-east-1';
-
-                const userEl = document.getElementById('lbl-user');
-                if (userEl) userEl.innerText = data.iam_user || 'admin-security';
-
-                const vulEl = document.getElementById('lbl-vulnerabilities');
-                if (vulEl) vulEl.innerText = data.findings ? data.findings.length : 12;
-
-                const critEl = document.getElementById('lbl-critical');
-                if (critEl) {
-                    const criticals = data.findings ? data.findings.filter(f => f.severity === 'HIGH' || f.severity === 'CRITICAL').length : 1;
-                    critEl.innerText = criticals;
-                }
-            } catch (error) {
-                console.warn("Backend offline ou API indisponível. Mantendo dados padrão.", error);
-                const scoreEl = document.getElementById('security-score');
-                if (scoreEl) scoreEl.innerText = "85%";
-            }
-        }
-
-        async function runAwsAudit() {
-            const resultContainer = document.getElementById('aws-result');
-            if (!resultContainer) return;
-            resultContainer.innerHTML = "🔄 Executando varredura na infraestrutura AWS...";
-            
-            try {
-                const response = await fetch('/api/dashboard');
-                if (!response.ok) throw new Error(`Status ${response.status}`);
-                const data = await response.json();
-                resultContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-            } catch (error) {
-                resultContainer.innerHTML = `<span style="color: #ef4444;">❌ Erro de conexão com a API: ${error.message}</span>`;
-            }
-        }
-
-        async function runSecurityAudit() {
-            const result = document.getElementById("security-result");
-            if (!result) return;
-            result.innerHTML = "🔄 Executando auditoria completa de segurança...";
-            
-            try {
-                const response = await fetch("/api/dashboard");
-                if (!response.ok) throw new Error(`Status ${response.status}`);
-                const data = await response.json();
-                
-                let html = `<h3 style="color: #38bdf8; margin-bottom: 15px;">📊 Security Score: ${data.security_score ?? 85}%</h3>`;
-                const findings = data.findings || [];
-
-                if (findings.length === 0) {
-                    html += `<p style="color: #22c55e; font-weight: bold;">✅ Nenhuma vulnerabilidade crítica encontrada.</p>`;
-                } else {
-                    findings.forEach(finding => {
-                        let badgeColor = "#38bdf8";
-                        const sev = (finding.severity || "").toUpperCase();
-                        if (sev.includes("CRITICAL") || sev.includes("HIGH")) badgeColor = "#ef4444";
-
-                        html += `
-                            <div style="background: #0f172a; border-left: 4px solid ${badgeColor}; padding: 12px; margin-bottom: 10px; border-radius: 6px;">
-                                <h4 style="margin: 0 0 5px 0; color: #f8fafc;">${finding.title}</h4>
-                                <p style="margin: 0 0 8px 0; color: #94a3b8; font-size: 13px;">${finding.description}</p>
-                                <span style="background: ${badgeColor}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">${finding.severity || "WARNING"}</span>
-                            </div>
-                        `;
-                    });
-                }
-                result.innerHTML = html;
-            } catch (error) {
-                result.innerHTML = `<p style="color: #ef4444; font-weight: bold;">❌ Erro: ${error.message}</p>`;
-            }
-        }
-
-        function runLabTest(testType) {
-            const result = document.getElementById("security-result");
-            if (!result) return;
-            result.innerHTML = `🔄 Executando teste isolado: <strong>${testType.toUpperCase()}</strong>...`;
-            
-            setTimeout(() => {
-                let message = "";
-                if (testType === 'security-groups') message = "⚠️ [Laboratório SG]: Regra de entrada irrestrita na porta 22 (SSH) detectada.";
-                else if (testType === 'mfa') message = "⚠️ [Laboratório MFA]: Contas administrativas sem MFA ativo.";
-                else if (testType === 's3-buckets') message = "✅ [Laboratório S3]: Nenhum bucket público encontrado.";
-
-                result.innerHTML = `
-                    <div style="background: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid #334155;">
-                        <h4 style="color: #38bdf8; margin-top: 0;">Resultado do Teste: ${testType}</h4>
-                        <p style="color: #cbd5e1; margin-bottom: 0;">${message}</p>
-                    </div>
-                `;
-            }, 600);
-        }
-
-        async function loadAuditHistoryChart() {
-            const chartCanvas = document.getElementById('historyChart');
-            if (!chartCanvas) return; // Blindagem contra erro de elemento nulo
-
-            try {
-                const response = await fetch('/api/audit-history');
-                const data = await response.json();
-
-                if (data.status === "success" && data.history) {
-                    const labels = data.history.map(item => item.date);
-                    const scores = data.history.map(item => item.score);
-
-                    const ctx = chartCanvas.getContext('2d');
-                    new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Security Score (%)',
-                                data: scores,
-                                borderColor: '#38bdf8',
-                                backgroundColor: 'rgba(56, 189, 248, 0.1)',
-                                borderWidth: 3,
-                                fill: true,
-                                tension: 0.3
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: { legend: { labels: { color: '#cbd5e1' } } },
-                            scales: {
-                                x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
-                                y: { min: 0, max: 100, ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
-                            }
-                        }
-                    });
-                }
-            } catch (error) {
-                console.warn("Histórico de auditoria indisponível no momento.", error);
-            }
-        }
-    </script>
+    <!-- Script para o Menu Hambúrguer -->
+    <script src="scripts/templos.js" defer></script>
 </body>
 </html>
