@@ -1,19 +1,40 @@
+/* ==========================================
+   Estilos para Telas Grandes (>= 600px)
+   Página do País (S03) - WDD131
+   ========================================== */
+
 @media (min-width: 600px) {
+    /* Organiza o conteúdo em 2 colunas */
     main {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: start;
     }
 
+    /* Faz a imagem principal ocupar toda a largura superior */
     picture {
         grid-column: 1 / -1;
     }
 
-    /* Requisito: Oculta o SVG no desktop */
+    /* Posiciona a seção de dados na primeira coluna */
+    .data {
+        grid-column: 1;
+    }
+
+    /* Posiciona a seção de clima na segunda coluna */
+    .weather {
+        grid-column: 2;
+    }
+
+    /* Oculta o ícone SVG de clima no desktop */
     .weather-icon {
         display: none;
     }
 
-    /* Requisito: Exibe o emoticon no desktop via pseudoelemento ::after */
+    /* Adiciona o emoticon de clima no desktop via pseudoelemento */
     .weather h2::after {
         content: " ⛅";
+        font-size: 1.5rem;
     }
 }

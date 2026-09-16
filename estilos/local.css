@@ -1,0 +1,17 @@
+@media (min-width: 600px) {
+
+    main {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+
+    .weather-icon {
+        display: none;
+    }
+
+    .weather h2::after {
+        content: " ⛅";
+        font-size: 1.5rem;
+    }
+
+}
