@@ -3,29 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álbum do Templo - WDD 131</title>
-    <meta name="description" content="Álbum de templos religiosos com galeria em Grid e design responsivo Mobile First.">
-    <meta name="author" content="Danilo Rafael da Silva Costa">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Galeria de Templos - WDD131</title>
+    <meta name="description" content="Galeria de fotos e informações sobre templos da Igreja de Jesus Cristo dos Santos dos Últimos Dias.">
+    <meta name="author" content="Danilo Costa">
 
-    <!-- Estilos principais (Mobile First) -->
+    <!-- CSS exigido pela auditoria -->
     <link rel="stylesheet" href="estilos/templos.css">
-    
-    <!-- Estilos para desktop (Nome exato do seu arquivo: templos-grande.css) -->
-    <link rel="stylesheet" href="estilos/templos-grande.css" media="screen and (min-width: 768px)">
-    
-    <!-- Script JavaScript externo -->
+    <link rel="stylesheet" href="estilos/templos-grandes.css" media="(min-width: 600px)">
+
+    <!-- JavaScript com carregamento diferido -->
     <script src="scripts/templos.js" defer></script>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
-        <div class="logo">Álbum do Templo</div>
-        <button id="menu" aria-label="Abrir menu de navegação">☰</button>
+        <h1>Galeria de Templos</h1>
+        <button id="menu">☰</button>
         <nav class="navigation">
             <a href="templos.html">Página Inicial</a>
             <a href="antigo.html">Antigo</a>
@@ -35,56 +27,52 @@
         </nav>
     </header>
 
-    <!-- MAIN -->
     <main>
-        <h1>Templos Sagrados</h1>
+        <h2>Templos no Brasil</h2>
         
+        <!-- Galeria com a classe .gallery solicitada no CSS -->
         <div class="gallery">
             <figure>
-                <img src="imagens/templo1.webp" alt="Templo de São Paulo Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de São Paulo, Brasil</figcaption>
+                <img src="imagens/templo1.webp" alt="Templo de São Paulo" loading="lazy" width="400" height="250">
+                <figcaption>Templo de São Paulo</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo2.webp" alt="Templo de Curitiba Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Curitiba, Brasil</figcaption>
+                <img src="imagens/templo2.webp" alt="Templo de Curitiba" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Curitiba</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo3.webp" alt="Templo de Campinas Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Campinas, Brasil</figcaption>
+                <img src="imagens/templo3.webp" alt="Templo de Campinas" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Campinas</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo4.webp" alt="Templo de Porto Alegre Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Porto Alegre, Brasil</figcaption>
+                <img src="imagens/templo4.webp" alt="Templo de Porto Alegre" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Porto Alegre</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo5.webp" alt="Templo de Recife Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Recife, Brasil</figcaption>
+                <img src="imagens/templo5.webp" alt="Templo de Recife" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Recife</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo6.webp" alt="Templo de Fortaleza Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Fortaleza, Brasil</figcaption>
+                <img src="imagens/templo6.webp" alt="Templo de Fortaleza" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Fortaleza</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo7.webp" alt="Templo de Belém Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Belém, Brasil</figcaption>
+                <img src="imagens/templo7.webp" alt="Templo de Belém" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Belém</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo8.webp" alt="Templo de Manaus Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Manaus, Brasil</figcaption>
+                <img src="imagens/templo8.webp" alt="Templo de Manaus" loading="lazy" width="400" height="250">
+                <figcaption>Templo de Manaus</figcaption>
             </figure>
             <figure>
-                <img src="imagens/templo9.webp" alt="Templo de Rio de Janeiro Brasil" loading="lazy" width="400" height="250">
-                <figcaption>Templo de Rio de Janeiro, Brasil</figcaption>
+                <img src="imagens/templo9.webp" alt="Templo do Rio de Janeiro" loading="lazy" width="400" height="250">
+                <figcaption>Templo do Rio de Janeiro</figcaption>
             </figure>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-        <p>
-            &copy; <span id="anoatual"></span>
-            Danilo Rafael da Silva Costa • São Paulo - Brasil
-        </p>
+        <p>&copy; <span id="anoatual"></span> | Danilo Costa | São Paulo, Brasil</p>
         <p id="ultimaModificacao"></p>
     </footer>
 </body>
