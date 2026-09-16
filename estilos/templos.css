@@ -1,8 +1,118 @@
-nav {
+/* ==========================================
+   1. Configuração Global e Alinhamento Desktop
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Alinhamento de Header, Main e Footer */
+header,
+main,
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* ==========================================
+   2. Cabeçalho e Navegação Mobile
+   ========================================== */
+header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a365d;
+    color: #ffffff;
+}
+
+/* Botão Hambúrguer (Texto/Ícone controlado via JS) */
+#menu {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Navegação Fechada por Padrão */
+.navigation {
+    display: none;
+    list-style: none;
+    background-color: #1a365d;
+}
+
+/* Navegação Aberta (Mobile) */
+.navigation.open {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navigation a {
+    display: block;
+    padding: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
 }
 
 .navigation a:hover {
-    background-color: #0056b3;
-    color: #fff;
+    background-color: #2b6cb0;
+}
+
+/* ==========================================
+   3. Estilização da Galeria de Imagens (.gallery)
+   ========================================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery figure {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery figcaption {
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f7fafc;
+}
+
+/* ==========================================
+   4. Layout Responsivo (Desktop)
+   ========================================== */
+@media (min-width: 600px) {
+    #menu {
+        display: none; /* Esconde o botão hambúrguer no desktop */
+    }
+
+    .navigation {
+        display: flex; /* Exibe o menu horizontalmente */
+        flex-direction: row;
+    }
+
+    .navigation a {
+        padding: 0.5rem 1rem;
+    }
 }
