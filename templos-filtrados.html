@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Temples - WDD131 S04</title>
+    
+    <meta name="description" content="Gallery of filtrable temples of The Church of Jesus Christ of Latter-day Saints.">
+    <meta name="author" content="Danilo Rafael da Silva Costa">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos CSS Específicos -->
+    <link rel="stylesheet" href="styles/templos-filtrados.css">
+
+    <!-- Script de Módulo (type="module" gerencia o carregamento diferido nativamente) -->
+    <script src="scripts/templos-filtrados.js" type="module"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Filtered Temples</h1>
+        <!-- Navegação com os IDs exatos para o JavaScript -->
+        <nav>
+            <a href="#" id="home">Home</a>
+            <a href="#" id="old">Old</a>
+            <a href="#" id="new">New</a>
+            <a href="#" id="large">Large</a>
+            <a href="#" id="small">Small</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contêiner dinâmico dos cartões dos templos -->
+        <div id="temple-container"></div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> | Danilo Rafael da Silva Costa | São Paulo, Brazil</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>
