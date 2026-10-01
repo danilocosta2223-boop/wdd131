@@ -17,9 +17,9 @@ function displayTemples(filteredTemples) {
     filteredTemples.forEach((temple) => {
         const card = document.createElement("section");
 
-        // Requisito: Lazy loading, alt text e atributos de dimensão para Lighthouse
+        // Requisito: h2 para título do card, lazy loading, alt text e atributos de dimensão
         card.innerHTML = `
-            <h3>${temple.templeName}</h3>
+            <h2>${temple.templeName}</h2>
             <p><strong>Location:</strong> ${temple.location}</p>
             <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
             <p><strong>Area:</strong> ${temple.area.toLocaleString('en-US')} sq ft</p>
@@ -43,7 +43,7 @@ displayTemples(temples);
    3. Requisito: Filtros Dinâmicos
    ========================================== */
 
-// Filtro: Home (Mostra todos os 10 templos)
+// Filtro: Home (Mostra todos os templos)
 const homeFilter = document.querySelector("#home");
 if (homeFilter) {
     homeFilter.addEventListener("click", (e) => {
@@ -103,7 +103,7 @@ if (smallFilter) {
 /* ==========================================
    4. Requisito: Footer Dinâmico
    ========================================== */
-const yearElement = document.querySelector("#year") || document.querySelector("#currentyear");
+const yearElement = document.querySelector("#year");
 const modifElement = document.querySelector("#lastModified");
 
 if (yearElement) {
