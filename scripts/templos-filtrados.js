@@ -1,115 +1,91 @@
-/* ==========================================
-   Main Script - Templos Filtrados (S04)
-   ========================================== */
-
-// 1. Requisito: Usar import do array de templos (export default)
 import temples from "./temples.js";
 
-// Elemento contêiner principal da galeria
-const container = document.querySelector("#temple-container");
+document.addEventListener("DOMContentLoaded", () => {
+    const templeContainer = document.querySelector("#temple-container");
+    const homeFilter = document.querySelector("#home");
+    const oldFilter = document.querySelector("#old");
+    const newFilter = document.querySelector("#new");
+    const largeFilter = document.querySelector("#large");
+    const smallFilter = document.querySelector("#small");
 
-// 2. Requisito: Função para criar os cartões de templos
-function displayTemples(filteredTemples) {
-    // Limpa o conteúdo anterior
-    container.innerHTML = "";
+    // Exibe ano e última modificação no footer
+    const currentYear = new Date().getFullYear();
+    document.querySelector("#year").textContent = currentYear;
+    document.querySelector("#lastModified").textContent = `Última Modificação: ${document.lastModified}`;
 
-    // Renderiza cada templo retornado pelo filtro
-    filteredTemples.forEach((temple) => {
-        const card = document.createElement("section");
+    // Função para renderizar os cards de templos
+    function displayTemples(filteredTemples) {
+        templeContainer.innerHTML = "";
 
-        // Requisito: h2 para título do card, lazy loading, alt text e atributos de dimensão
-        card.innerHTML = `
-            <h2>${temple.templeName}</h2>
-            <p><strong>Location:</strong> ${temple.location}</p>
-            <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
-            <p><strong>Area:</strong> ${temple.area.toLocaleString('en-US')} sq ft</p>
-            <img 
-                src="${temple.imageUrl}" 
-                alt="${temple.templeName}" 
-                loading="lazy" 
-                width="400" 
-                height="250"
-            >
-        `;
+        filteredTemples.forEach((temple) => {
+            const card = document.createElement("section");
+            card.classList.add("temple-card");
 
-        container.appendChild(card);
-    });
-}
+            const name = document.createElement("h3");
+            name.textContent = temple.templeName;
 
-// Inicializa a exibição com todos os templos ao carregar a página
-displayTemples(temples);
+            const location = document.createElement("p");
+            location.innerHTML = `<span class="label">Localização:</span> ${temple.location}`;
 
-/* ==========================================
-   3. Requisito: Filtros Dinâmicos
-   ========================================== */
+            const dedicated = document.createElement("p");
+            dedicated.innerHTML = `<span class="label">Dedicação:</span> ${temple.dedicated}`;
 
-// Filtro: Home (Mostra todos os templos)
-const homeFilter = document.querySelector("#home");
-if (homeFilter) {
+            const area = document.createElement("p");
+            area.innerHTML = `<span class="label">Área:</span> ${temple.area.toLocaleString("pt-BR")} sq ft`;
+
+            const image = document.createElement("img");
+            image.src = temple.imageUrl;
+            image.alt = `Templo de ${temple.templeName}`;
+            image.loading = "lazy";
+            image.width = 400;
+            image.height = 250;
+
+            card.appendChild(name);
+            card.appendChild(location);
+            card.appendChild(dedicated);
+            card.appendChild(area);
+            card.appendChild(image);
+
+            templeContainer.appendChild(card);
+        });
+    }
+
+    // Função auxiliar para extrair o ano de dedicação
+    function getYear(dedicatedString) {
+        const parts = dedicatedString.split(",");
+        return parseInt(parts[0].trim(), 10);
+    }
+
+    // Eventos de Filtro
     homeFilter.addEventListener("click", (e) => {
         e.preventDefault();
         displayTemples(temples);
     });
-}
 
-// Filtro: Old (Construídos antes de 1900)
-const oldFilter = document.querySelector("#old");
-if (oldFilter) {
     oldFilter.addEventListener("click", (e) => {
         e.preventDefault();
-        displayTemples(
-            temples.filter(
-                (temple) => Number(temple.dedicated.split(",")[0]) < 1900
-            )
-        );
+        const oldTemples = temples.filter((temple) => getYear(temple.dedicated) < 1900);
+        displayTemples(oldTemples);
     });
-}
 
-// Filtro: New (Construídos após 2000)
-const newFilter = document.querySelector("#new");
-if (newFilter) {
     newFilter.addEventListener("click", (e) => {
         e.preventDefault();
-        displayTemples(
-            temples.filter(
-                (temple) => Number(temple.dedicated.split(",")[0]) > 2000
-            )
-        );
+        const newTemples = temples.filter((temple) => getYear(temple.dedicated) > 2000);
+        displayTemples(newTemples);
     });
-}
 
-// Filtro: Large (Área maior que 90.000 sq ft)
-const largeFilter = document.querySelector("#large");
-if (largeFilter) {
     largeFilter.addEventListener("click", (e) => {
         e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => temple.area > 90000)
-        );
+        const largeTemples = temples.filter((temple) => temple.area > 90000);
+        displayTemples(largeTemples);
     });
-}
 
-// Filtro: Small (Área menor que 10.000 sq ft)
-const smallFilter = document.querySelector("#small");
-if (smallFilter) {
     smallFilter.addEventListener("click", (e) => {
         e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => temple.area < 10000)
-        );
+        const smallTemples = temples.filter((temple) => temple.area < 10000);
+        displayTemples(smallTemples);
     });
-}
 
-/* ==========================================
-   4. Requisito: Footer Dinâmico
-   ========================================== */
-const yearElement = document.querySelector("#year");
-const modifElement = document.querySelector("#lastModified");
-
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
-
-if (modifElement) {
-    modifElement.textContent = `Last Modification: ${document.lastModified}`;
-}
+    // Renderização inicial (Página Inicial)
+    displayTemples(temples);
+});
