@@ -1,91 +1,78 @@
-import temples from "./temples.js";
+/* ==========================================
+   Dados dos Templos (Array de 10 Objetos com Imagens Locais)
+   ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-    const templeContainer = document.querySelector("#temple-container");
-    const homeFilter = document.querySelector("#home");
-    const oldFilter = document.querySelector("#old");
-    const newFilter = document.querySelector("#new");
-    const largeFilter = document.querySelector("#large");
-    const smallFilter = document.querySelector("#small");
-
-    // Exibe ano e última modificação no footer
-    const currentYear = new Date().getFullYear();
-    document.querySelector("#year").textContent = currentYear;
-    document.querySelector("#lastModified").textContent = `Última Modificação: ${document.lastModified}`;
-
-    // Função para renderizar os cards de templos
-    function displayTemples(filteredTemples) {
-        templeContainer.innerHTML = "";
-
-        filteredTemples.forEach((temple) => {
-            const card = document.createElement("section");
-            card.classList.add("temple-card");
-
-            const name = document.createElement("h3");
-            name.textContent = temple.templeName;
-
-            const location = document.createElement("p");
-            location.innerHTML = `<span class="label">Localização:</span> ${temple.location}`;
-
-            const dedicated = document.createElement("p");
-            dedicated.innerHTML = `<span class="label">Dedicação:</span> ${temple.dedicated}`;
-
-            const area = document.createElement("p");
-            area.innerHTML = `<span class="label">Área:</span> ${temple.area.toLocaleString("pt-BR")} sq ft`;
-
-            const image = document.createElement("img");
-            image.src = temple.imageUrl;
-            image.alt = `Templo de ${temple.templeName}`;
-            image.loading = "lazy";
-            image.width = 400;
-            image.height = 250;
-
-            card.appendChild(name);
-            card.appendChild(location);
-            card.appendChild(dedicated);
-            card.appendChild(area);
-            card.appendChild(image);
-
-            templeContainer.appendChild(card);
-        });
+const temples = [
+    {
+        templeName: "Aba Nigeria",
+        location: "Aba, Nigeria",
+        dedicated: "2005, August, 7",
+        area: 11500,
+        imageUrl: "imagens/templo1.webp"
+    },
+    {
+        templeName: "Manti Utah",
+        location: "Manti, Utah, United States",
+        dedicated: "1888, May, 21",
+        area: 74792,
+        imageUrl: "imagens/templo2.webp"
+    },
+    {
+        templeName: "Payson Utah",
+        location: "Payson, Utah, United States",
+        dedicated: "2015, June, 7",
+        area: 96630,
+        imageUrl: "imagens/templo3.webp"
+    },
+    {
+        templeName: "Yigo Guam",
+        location: "Yigo, Guam",
+        dedicated: "2020, May, 2",
+        area: 6861,
+        imageUrl: "imagens/templo4.webp"
+    },
+    {
+        templeName: "Washington D.C.",
+        location: "Kensington, Maryland, United States",
+        dedicated: "1974, November, 19",
+        area: 156558,
+        imageUrl: "imagens/templo5.webp"
+    },
+    {
+        templeName: "Salt Lake",
+        location: "Salt Lake City, Utah, United States",
+        dedicated: "1893, April, 6",
+        area: 253015,
+        imageUrl: "imagens/templo6.webp"
+    },
+    {
+        templeName: "São Paulo Brazil",
+        location: "São Paulo, SP, Brazil",
+        dedicated: "1978, October, 30",
+        area: 59246,
+        imageUrl: "imagens/templo7.webp"
+    },
+    {
+        templeName: "Campinas Brazil",
+        location: "Campinas, SP, Brazil",
+        dedicated: "2002, May, 17",
+        area: 48100,
+        imageUrl: "imagens/templo8.webp"
+    },
+    {
+        templeName: "Curitiba Brazil",
+        location: "Curitiba, PR, Brazil",
+        dedicated: "2008, June, 1",
+        area: 27850,
+        imageUrl: "imagens/templo9.webp"
+    },
+    {
+        templeName: "Recife Brazil",
+        location: "Recife, PE, Brazil",
+        dedicated: "2000, December, 15",
+        area: 37000,
+        imageUrl: "imagens/templo10.webp"
     }
+];
 
-    // Função auxiliar para extrair o ano de dedicação
-    function getYear(dedicatedString) {
-        const parts = dedicatedString.split(",");
-        return parseInt(parts[0].trim(), 10);
-    }
-
-    // Eventos de Filtro
-    homeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(temples);
-    });
-
-    oldFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const oldTemples = temples.filter((temple) => getYear(temple.dedicated) < 1900);
-        displayTemples(oldTemples);
-    });
-
-    newFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const newTemples = temples.filter((temple) => getYear(temple.dedicated) > 2000);
-        displayTemples(newTemples);
-    });
-
-    largeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const largeTemples = temples.filter((temple) => temple.area > 90000);
-        displayTemples(largeTemples);
-    });
-
-    smallFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const smallTemples = temples.filter((temple) => temple.area < 10000);
-        displayTemples(smallTemples);
-    });
-
-    // Renderização inicial (Página Inicial)
-    displayTemples(temples);
-});
+export default temples;
