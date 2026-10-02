@@ -1,89 +1,74 @@
-import temples from "./temples.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-    const templeContainer = document.querySelector("#temple-container");
-    const homeFilter = document.querySelector("#home");
-    const oldFilter = document.querySelector("#old");
-    const newFilter = document.querySelector("#new");
-    const largeFilter = document.querySelector("#large");
-    const smallFilter = document.querySelector("#small");
-
-    // Exibe ano e última modificação no footer
-    const currentYear = new Date().getFullYear();
-    document.querySelector("#year").textContent = currentYear;
-    document.querySelector("#lastModified").textContent =
-        `Última Modificação: ${document.lastModified}`;
-
-    function displayTemples(filteredTemples) {
-        templeContainer.innerHTML = "";
-
-        filteredTemples.forEach((temple) => {
-            const card = document.createElement("section");
-            card.classList.add("temple-card");
-
-            const name = document.createElement("h3");
-            name.textContent = temple.templeName;
-
-            const location = document.createElement("p");
-            location.innerHTML =
-                `<span class="label">Localização:</span> ${temple.location}`;
-
-            const dedicated = document.createElement("p");
-            dedicated.innerHTML =
-                `<span class="label">Dedicação:</span> ${temple.dedicated}`;
-
-            const area = document.createElement("p");
-            area.innerHTML =
-                `<span class="label">Área:</span> ${temple.area.toLocaleString("pt-BR")} sq ft`;
-
-            const image = document.createElement("img");
-            image.src = temple.imageUrl;
-            image.alt = `Templo de ${temple.templeName}`;
-            image.loading = "lazy";
-            image.width = 400;
-            image.height = 250;
-
-            card.append(name, location, dedicated, area, image);
-            templeContainer.appendChild(card);
-        });
+const temples = [
+    {
+        templeName: "São Paulo Brazil",
+        location: "São Paulo, SP, Brazil",
+        dedicated: "1978, October, 30",
+        area: 59246,
+        imageUrl: "imagens/sao-paulo.webp"
+    },
+    {
+        templeName: "Campinas Brazil",
+        location: "Campinas, SP, Brazil",
+        dedicated: "2002, May, 17",
+        area: 48100,
+        imageUrl: "imagens/campinas.webp"
+    },
+    {
+        templeName: "Curitiba Brazil",
+        location: "Curitiba, PR, Brazil",
+        dedicated: "2008, June, 1",
+        area: 27850,
+        imageUrl: "imagens/curitiba.webp"
+    },
+    {
+        templeName: "Recife Brazil",
+        location: "Recife, PE, Brazil",
+        dedicated: "2000, December, 15",
+        area: 37000,
+        imageUrl: "imagens/recife.webp"
+    },
+    {
+        templeName: "Fortaleza Brazil",
+        location: "Fortaleza, CE, Brazil",
+        dedicated: "2019, June, 2",
+        area: 36000,
+        imageUrl: "imagens/fortaleza.webp"
+    },
+    {
+        templeName: "Porto Alegre Brazil",
+        location: "Porto Alegre, RS, Brazil",
+        dedicated: "2000, December, 17",
+        area: 107240,
+        imageUrl: "imagens/porto-alegre.webp"
+    },
+    {
+        templeName: "Manaus Brazil",
+        location: "Manaus, AM, Brazil",
+        dedicated: "2012, June, 10",
+        area: 32032,
+        imageUrl: "imagens/manaus.webp"
+    },
+    {
+        templeName: "Belém Brazil",
+        location: "Belém, PA, Brazil",
+        dedicated: "2022, November, 20",
+        area: 28000,
+        imageUrl: "imagens/belem.webp"
+    },
+    {
+        templeName: "Brasília Brazil",
+        location: "Brasília, DF, Brazil",
+        dedicated: "2023, September, 17",
+        area: 25000,
+        imageUrl: "imagens/brasilia.webp"
+    },
+    {
+        templeName: "Rio de Janeiro Brazil",
+        location: "Rio de Janeiro, RJ, Brazil",
+        dedicated: "2022, May, 8",
+        area: 29000,
+        imageUrl: "imagens/rio-janeiro.webp"
     }
+];
 
-    function getYear(dedicatedString) {
-        return parseInt(dedicatedString.split(",")[0], 10);
-    }
-
-    homeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(temples);
-    });
-
-    oldFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => getYear(temple.dedicated) < 1900)
-        );
-    });
-
-    newFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => getYear(temple.dedicated) > 2000)
-        );
-    });
-
-    largeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => temple.area > 90000)
-        );
-    });
-
-    smallFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(
-            temples.filter((temple) => temple.area < 10000)
-        );
-    });
-
-    displayTemples(temples);
-});
+export default temples;
