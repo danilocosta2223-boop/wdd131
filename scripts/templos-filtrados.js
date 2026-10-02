@@ -8,13 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const largeFilter = document.querySelector("#large");
     const smallFilter = document.querySelector("#small");
 
+    // Menu Hamburguer / Mobile Navigation
+    const mainNav = document.querySelector(".navigation");
+    const hambutton = document.querySelector("#menu");
+
+    if (hambutton && mainNav) {
+        hambutton.addEventListener("click", () => {
+            mainNav.classList.toggle("show");
+            hambutton.classList.toggle("show");
+        });
+    }
+
     // Exibe ano e última modificação no footer
     const currentYear = new Date().getFullYear();
-    document.querySelector("#year").textContent = currentYear;
-    document.querySelector("#lastModified").textContent = `Última Modificação: ${document.lastModified}`;
+    const yearElement = document.querySelector("#year");
+    const lastModifiedElement = document.querySelector("#lastModified");
+
+    if (yearElement) yearElement.textContent = currentYear;
+    if (lastModifiedElement) lastModifiedElement.textContent = `Última Modificação: ${document.lastModified}`;
 
     // Função para renderizar os cards de templos
     function displayTemples(filteredTemples) {
+        if (!templeContainer) return;
         templeContainer.innerHTML = "";
 
         filteredTemples.forEach((temple) => {
@@ -57,35 +72,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Eventos de Filtro
-    homeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        displayTemples(temples);
-    });
+    if (homeFilter) {
+        homeFilter.addEventListener("click", (e) => {
+            e.preventDefault();
+            displayTemples(temples);
+        });
+    }
 
-    oldFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const oldTemples = temples.filter((temple) => getYear(temple.dedicated) < 1900);
-        displayTemples(oldTemples);
-    });
+    if (oldFilter) {
+        oldFilter.addEventListener("click", (e) => {
+            e.preventDefault();
+            const oldTemples = temples.filter((temple) => getYear(temple.dedicated) < 1900);
+            displayTemples(oldTemples);
+        });
+    }
 
-    newFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const newTemples = temples.filter((temple) => getYear(temple.dedicated) > 2000);
-        displayTemples(newTemples);
-    });
+    if (newFilter) {
+        newFilter.addEventListener("click", (e) => {
+            e.preventDefault();
+            const newTemples = temples.filter((temple) => getYear(temple.dedicated) > 2000);
+            displayTemples(newTemples);
+        });
+    }
 
-    largeFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const largeTemples = temples.filter((temple) => temple.area > 90000);
-        displayTemples(largeTemples);
-    });
+    if (largeFilter) {
+        largeFilter.addEventListener("click", (e) => {
+            e.preventDefault();
+            const largeTemples = temples.filter((temple) => temple.area > 90000);
+            displayTemples(largeTemples);
+        });
+    }
 
-    smallFilter.addEventListener("click", (e) => {
-        e.preventDefault();
-        const smallTemples = temples.filter((temple) => temple.area < 10000);
-        displayTemples(smallTemples);
-    });
+    if (smallFilter) {
+        smallFilter.addEventListener("click", (e) => {
+            e.preventDefault();
+            const smallTemples = temples.filter((temple) => temple.area < 10000);
+            displayTemples(smallTemples);
+        });
+    }
 
-    // Renderização inicial (Página Inicial)
+    // Renderização inicial
     displayTemples(temples);
 });

@@ -3,43 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álbum do Templo - Templos Filtrados</title>
-    
-    <meta name="description" content="Álbum de Templos contendo templos filtráveis da Igreja de Jesus Cristo dos Santos dos Últimos Dias.">
+    <title>Álbum de Fotos de Templos Filtrados</title>
+    <meta name="description" content="Página de galeria de templos com filtros por ano de dedicação e área construída.">
     <meta name="author" content="Danilo Rafael da Silva Costa">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="estilos/templos-filtrados.css">
-
-    <!-- Script de Módulo -->
-    <script src="scripts/templos-filtrados.js" type="module"></script>
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="screen and (min-width: 600px)">
+    
+    <!-- Script JS como Módulo ES6 -->
+    <script type="module" src="scripts/templos-filtrados.js"></script>
 </head>
 <body>
-
     <header>
-        <h1>Álbum do Templo</h1>
-        <nav>
-            <a href="#" id="home">Página Inicial</a>
-            <a href="#" id="old">Antigo</a>
-            <a href="#" id="new">Novo</a>
-            <a href="#" id="large">Grande</a>
-            <a href="#" id="small">Pequeno</a>
+        <h1>Álbum de Templos</h1>
+        <button id="menu" aria-label="Menu de Navegação"></button>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#" id="home">Início</a></li>
+                <li><a href="#" id="old">Antigos</a></li>
+                <li><a href="#" id="new">Novos</a></li>
+                <li><a href="#" id="large">Grandes</a></li>
+                <li><a href="#" id="small">Pequenos</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <div id="temple-container"></div>
+        <h2>Templos do Brasil</h2>
+        <div id="temple-container" class="temple-grid">
+            <!-- Os cartões dos templos serão renderizados dinamicamente pelo JavaScript -->
+        </div>
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> | Danilo Rafael da Silva Costa | São Paulo, Brazil</p>
+        <p>&copy; <span id="year"></span> | Danilo Rafael da Silva Costa | São Paulo, Brasil</p>
         <p id="lastModified"></p>
     </footer>
-
 </body>
 </html>
