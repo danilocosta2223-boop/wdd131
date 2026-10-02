@@ -3,37 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álbum de Fotos de Templos Filtrados</title>
-    <meta name="description" content="Página de galeria de templos com filtros por ano de dedicação e área construída.">
+    <title>Álbum do Templo</title>
+    <meta name="description" content="Galeria de templos filtrada por ano de dedicação e área construída.">
     <meta name="author" content="Danilo Rafael da Silva Costa">
     
-    <!-- Estilos CSS -->
-    <link rel="stylesheet" href="styles/filtered-temples.css">
-    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="screen and (min-width: 600px)">
+    <!-- CSS apontando para a pasta estilos/ -->
+    <link rel="stylesheet" href="estilos/templos-filtrados.css">
     
-    <!-- Script JS como Módulo ES6 -->
+    <!-- Módulo JS -->
     <script type="module" src="scripts/templos-filtrados.js"></script>
 </head>
 <body>
     <header>
-        <h1>Álbum de Templos</h1>
-        <button id="menu" aria-label="Menu de Navegação"></button>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#" id="home">Início</a></li>
-                <li><a href="#" id="old">Antigos</a></li>
-                <li><a href="#" id="new">Novos</a></li>
-                <li><a href="#" id="large">Grandes</a></li>
-                <li><a href="#" id="small">Pequenos</a></li>
-            </ul>
+        <h1>Álbum do Templo</h1>
+        <nav>
+            <a href="#" id="home">Página Inicial</a>
+            <a href="#" id="old">Antigo</a>
+            <a href="#" id="new">Novo</a>
+            <a href="#" id="large">Grande</a>
+            <a href="#" id="small">Pequeno</a>
         </nav>
     </header>
 
     <main>
-        <h2>Templos do Brasil</h2>
-        <div id="temple-container" class="temple-grid">
-            <!-- Os cartões dos templos serão renderizados dinamicamente pelo JavaScript -->
-        </div>
+        <h2>Templos</h2>
+        <div id="temple-container"></div>
     </main>
 
     <footer>

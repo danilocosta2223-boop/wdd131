@@ -8,18 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const largeFilter = document.querySelector("#large");
     const smallFilter = document.querySelector("#small");
 
-    // Menu Hamburguer / Mobile Navigation
-    const mainNav = document.querySelector(".navigation");
-    const hambutton = document.querySelector("#menu");
-
-    if (hambutton && mainNav) {
-        hambutton.addEventListener("click", () => {
-            mainNav.classList.toggle("show");
-            hambutton.classList.toggle("show");
-        });
-    }
-
-    // Exibe ano e última modificação no footer
+    // 1. Injeção do Footer (Ano e Última Modificação)
     const currentYear = new Date().getFullYear();
     const yearElement = document.querySelector("#year");
     const lastModifiedElement = document.querySelector("#lastModified");
@@ -27,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (yearElement) yearElement.textContent = currentYear;
     if (lastModifiedElement) lastModifiedElement.textContent = `Última Modificação: ${document.lastModified}`;
 
-    // Função para renderizar os cards de templos
+    // 2. Renderização dos cards dos templos
     function displayTemples(filteredTemples) {
         if (!templeContainer) return;
         templeContainer.innerHTML = "";
@@ -65,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Função auxiliar para extrair o ano de dedicação
+    // Auxiliar para pegar o ano de dedicação
     function getYear(dedicatedString) {
         const parts = dedicatedString.split(",");
         return parseInt(parts[0].trim(), 10);
     }
 
-    // Eventos de Filtro
+    // 3. Event Listeners dos Filtros
     if (homeFilter) {
         homeFilter.addEventListener("click", (e) => {
             e.preventDefault();
@@ -111,6 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Renderização inicial
+    // Carregamento inicial ao abrir a página
     displayTemples(temples);
 });
