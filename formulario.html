@@ -7,9 +7,9 @@
     <meta name="description" content="Formulário de avaliação de produto para a disciplina WDD131.">
     <meta name="author" content="Danilo Rafael da Silva Costa">
     
-    <!-- Arquivos de Estilo CSS -->
-    <link rel="stylesheet" href="styles/form.css">
-    <link rel="stylesheet" href="styles/form-large.css" media="screen and (min-width: 600px)">
+    <!-- Arquivos de Estilo CSS na pasta "estilos" -->
+    <link rel="stylesheet" href="estilos/form.css">
+    <link rel="stylesheet" href="estilos/form-large.css" media="screen and (min-width: 600px)">
     
     <!-- Scripts JavaScript -->
     <script src="scripts/products.js" defer></script>
@@ -28,23 +28,23 @@
                 <option value="" disabled selected>Selecione um Produto...</option>
             </select>
 
-            <!-- Classificação Geral (Obrigatório) -->
+            <!-- Classificação Geral (Obrigatório com required em todos os radios) -->
             <fieldset>
                 <legend>Classificação Geral *</legend>
                 <label for="rating1">
                     <input type="radio" id="rating1" name="rating" value="1" required> ☆ 1
                 </label>
                 <label for="rating2">
-                    <input type="radio" id="rating2" name="rating" value="2"> ☆ 2
+                    <input type="radio" id="rating2" name="rating" value="2" required> ☆ 2
                 </label>
                 <label for="rating3">
-                    <input type="radio" id="rating3" name="rating" value="3"> ☆ 3
+                    <input type="radio" id="rating3" name="rating" value="3" required> ☆ 3
                 </label>
                 <label for="rating4">
-                    <input type="radio" id="rating4" name="rating" value="4"> ☆ 4
+                    <input type="radio" id="rating4" name="rating" value="4" required> ☆ 4
                 </label>
                 <label for="rating5">
-                    <input type="radio" id="rating5" name="rating" value="5"> ☆ 5
+                    <input type="radio" id="rating5" name="rating" value="5" required> ☆ 5
                 </label>
             </fieldset>
 
