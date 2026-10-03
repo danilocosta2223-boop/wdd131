@@ -1,0 +1,27 @@
+/* Media query para ecrãs maiores (telas a partir de 600px) */
+@media (min-width: 600px) {
+    main {
+        padding: 2.5rem;
+    }
+
+    form {
+        gap: 1.5rem;
+    }
+
+    /* Agrupa e distribui as opções de classificação (radio buttons) na horizontal */
+    fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    fieldset legend {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    fieldset label {
+        margin: 0;
+    }
+}

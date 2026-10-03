@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Produto - WDD131</title>
+    <meta name="description" content="Formulário de avaliação de produto para a disciplina WDD131.">
+    <meta name="author" content="Danilo Rafael da Silva Costa">
+    
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/form-large.css" media="screen and (min-width: 600px)">
+    
+    <script src="scripts/products.js" defer></script>
+    <script src="scripts/form.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Formulário de Avaliação de Produto</h1>
+    </header>
+
+    <main>
+        <form method="get" action="avaliacao.html">
+            <!-- Nome do Produto (Obrigatório) -->
+            <label for="productName">Produto *</label>
+            <select id="productName" name="productName" required>
+                <option value="" disabled selected>Selecione um Produto...</option>
+            </select>
+
+            <!-- Classificação Geral (Obrigatório) -->
+            <fieldset>
+                <legend>Classificação Geral *</legend>
+                <label for="rating1">
+                    <input type="radio" id="rating1" name="rating" value="1" required> ☆ 1
+                </label>
+                <label for="rating2">
+                    <input type="radio" id="rating2" name="rating" value="2"> ☆ 2
+                </label>
+                <label for="rating3">
+                    <input type="radio" id="rating3" name="rating" value="3"> ☆ 3
+                </label>
+                <label for="rating4">
+                    <input type="radio" id="rating4" name="rating" value="4"> ☆ 4
+                </label>
+                <label for="rating5">
+                    <input type="radio" id="rating5" name="rating" value="5"> ☆ 5
+                </label>
+            </fieldset>
+
+            <!-- Data de Instalação (Obrigatório) -->
+            <label for="installDate">Data de Instalação *</label>
+            <input type="date" id="installDate" name="installDate" required>
+
+            <!-- Recursos Úteis (Opcional) -->
+            <fieldset>
+                <legend>Recursos Úteis (opcional)</legend>
+                <label for="durability">
+                    <input type="checkbox" id="durability" name="features" value="Durability"> Durabilidade
+                </label>
+                <label for="easeOfUse">
+                    <input type="checkbox" id="easeOfUse" name="features" value="Ease of Use"> Facilidade de Uso
+                </label>
+                <label for="performance">
+                    <input type="checkbox" id="performance" name="features" value="Performance"> Desempenho
+                </label>
+                <label for="design">
+                    <input type="checkbox" id="design" name="features" value="Design"> Design
+                </label>
+                <label for="reliability">
+                    <input type="checkbox" id="reliability" name="features" value="Reliability"> Confiabilidade
+                </label>
+            </fieldset>
+
+            <!-- Avaliação Escrita (Opcional) -->
+            <label for="review">Avaliação Escrita (opcional)</label>
+            <textarea id="review" name="review" rows="4"></textarea>
+
+            <!-- Nome do Usuário (Opcional) -->
+            <label for="userName">Seu Nome (opcional)</label>
+            <input type="text" id="userName" name="userName">
+
+            <!-- Botão de Envio -->
+            <input type="submit" value="Enviar Avaliação">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> | Danilo Rafael da Silva Costa | São Paulo, Brasil</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
